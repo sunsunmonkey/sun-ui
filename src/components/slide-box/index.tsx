@@ -1,18 +1,27 @@
-import  {  memo} from 'react'
+import  {  memo, useState} from 'react'
 import {SlideBoxWrapper} from "./style"
+import { vwTransferPX } from '../../util/pxAndVW'
 
 interface SliderBox{
-  display:string
-  distance:number
+  distance:number,
+  transition:string,
+  sonCallback:() => void
 }
 const SliderBox= memo((props:SliderBox) => {
+  const [mask , setMask] = useState<string>('block')
+  const { distance, transition ,sonCallback} = props
 
-  const {display, distance} = props
-  
+  const transparency = (0.7/vwTransferPX(80))*distance
+
+  //这段写的一坨，反正不优雅
+  if(distance > 0 && mask!=='block') setMask('block')
+  if(distance === 0 && mask!=='none') setMask('none')
+
+
   return (
-    <SlideBoxWrapper display={display} >
-        <div className="mask"></div>
-        <div className="selfinfo" style={{transform:`translateX(${distance}px)`}}></div>
+    <SlideBoxWrapper >
+      <div className="mask" style={{ display : mask , backgroundColor: `rgb(0,0,0,${transparency})`}} onClick={sonCallback}></div>
+      <div className="selfinfo" style={{transform:`translateX(${distance}px)`,transition:`${transition}`}}></div>
     </SlideBoxWrapper>
   )
 })

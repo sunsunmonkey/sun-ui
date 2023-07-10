@@ -1,8 +1,7 @@
 import styled from "styled-components";
-interface SliderBox{
-    display:string
-  }
-export const SlideBoxWrapper = styled.div<SliderBox>`
+
+export const SlideBoxWrapper = styled.div`
+  
     position: relative;
     height: 100vh;
     .mask{
