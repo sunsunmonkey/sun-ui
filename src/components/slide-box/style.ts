@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SlideBoxWrapper = styled.div`
   
-    position: relative;
+    position: absolute;
     height: 100vh;
     .mask{
         background-color: rgb(0,0,0,0.7);
@@ -12,6 +12,7 @@ export const SlideBoxWrapper = styled.div`
         top: 0;
         right: 0;
         bottom: 0;
+        width: 100vw;
     }
     .selfinfo{
         position: absolute;

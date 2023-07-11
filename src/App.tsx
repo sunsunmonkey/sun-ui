@@ -49,14 +49,13 @@ function App() {
     onTouchStart={handleTouchStart}
     onTouchMove={handleTouchMove}
     onTouchEnd={handleTouchEnd}>
-
      {isShow &&<SliderBox 
       distance={distance}
       transition={transition}
       sonCallback={sonCallback}
      ></SliderBox>}
-     
-       
+     <h1>111</h1>
+      
     </AppWrapper>
   )
 }

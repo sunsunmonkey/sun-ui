@@ -15,12 +15,14 @@ const SliderBox= memo((props:SliderBox) => {
 
   //这段写的一坨，反正不优雅
   if(distance > 0 && mask!=='block') setMask('block')
-  if(distance === 0 && mask!=='none') setMask('none')
+  if(distance === 0 && mask!=='none') setTimeout(() => {
+    setMask('none')
+  }, 300); 
 
 
   return (
     <SlideBoxWrapper >
-      <div className="mask" style={{ display : mask , backgroundColor: `rgb(0,0,0,${transparency})`}} onClick={sonCallback}></div>
+      <div className="mask" style={{transition:'all .3s', display : mask , backgroundColor: `rgb(0,0,0,${transparency})`}} onClick={sonCallback}></div>
       <div className="selfinfo" style={{transform:`translateX(${distance}px)`,transition:`${transition}`}}></div>
     </SlideBoxWrapper>
   )
