@@ -29,7 +29,6 @@ function App() {
     setDistance( positonEnd.current - positonStart.current)
     
   }
-
   function handleTouchEnd(){
     setTimeout(()=>{
       setTransition('all .3s')
@@ -44,6 +43,7 @@ function App() {
     setTransition('all .3s')
     setDistance(0)
   }
+  
   return (
     <AppWrapper  
     onTouchStart={handleTouchStart}
@@ -55,7 +55,9 @@ function App() {
       sonCallback={sonCallback}
      ></SliderBox>}
      <h1>111</h1>
+     {
       
+     }
     </AppWrapper>
   )
 }
